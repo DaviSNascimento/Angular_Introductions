@@ -1,0 +1,31 @@
+<div class="form-container">
+    <h2>Cadastro de Aluno</h2>
+    <form>
+      <div class="mb-3">
+        <label for="ra" class="form-label">RA</label>
+        <input type="text" [(ngModel)]="aluno.ra" name="ra" class="form-control" id="ra" placeholder="RA" required>
+      </div>
+  
+      <div class="mb-3">
+        <label for="nome" class="form-label">Nome</label>
+        <input type="text" [(ngModel)]="aluno.nome" name="nome" class="form-control" id="nome" placeholder="Nome" required>
+      </div>
+  
+      <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" [(ngModel)]="aluno.email" name="email" class="form-control" id="email" placeholder="Email" required>
+      </div>
+  
+      <div class="mb-3">
+        <label for="celular" class="form-label">Celular</label>
+        <input type="text" [(ngModel)]="aluno.celular" name="celular" class="form-control" id="celular" placeholder="Celular" required>
+      </div>
+  
+      <button type="button" class="btn btn-primary" (click)="cadastrar()">Cadastrar</button>
+  
+      <div *ngIf="mensagemErro" class="alert alert-danger mt-3">
+        {{ mensagemErro }}
+      </div>
+    </form>
+  </div>
+  

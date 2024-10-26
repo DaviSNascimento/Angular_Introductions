@@ -1,0 +1,39 @@
+<div class="form-container">
+  <h2>Calculadora de Média</h2>
+  <p *ngIf="mensagemErro" id="erro-msg" class="alert alert-danger">{{ mensagemErro }}</p>
+
+    <div class="row mb-3">
+      <label for="colFormLabel" class="col-sm-0 col-form-label">AC1</label>
+      <div class="col-sm-4">
+        <input type="text" [(ngModel)]="ac1" class="form-control" id="colFormLabel" placeholder="Nota AC1">
+      </div>
+    </div>
+    <div class="row mb-3">
+      <label for="colFormLabel" class="col-sm-0 col-form-label">AC2</label>
+      <div class="col-sm-4">
+        <input type="text" [(ngModel)]="ac2" class="form-control" id="colFormLabel" placeholder="Nota AC2">
+      </div>
+    </div>
+      <div class="row mb-3">
+        <label for="colFormLabel" class="col-sm-0 col-form-label">AG</label>
+        <div class="col-sm-4">
+          <input type="text" [(ngModel)]="ag" class="form-control" id="colFormLabel" placeholder="Nota AG">
+        </div>
+      </div>
+        <div class="row mb-3">
+          <label for="colFormLabel" class="col-sm-0 col-form-label">AF</label>
+          <div class="col-sm-4">
+            <input type="text" [(ngModel)]="af" class="form-control" id="colFormLabel" placeholder="Nota AF">
+          </div>
+        </div>
+
+  <button type="button" id="btnCalc" class="btn btn-primary" (click)="validarNumber() && validarMaxNumber() && calcularMedia() ">Calcular</button>
+  
+    <p  class="alert alert-success" role="alert" *ngIf="resultado !== null">
+      Média Final: {{ resultado }} -
+      <span  [ngClass]="{'aprovado': resultado >= 5, 'reprovado': resultado < 5}">
+        {{ resultado >= 5 ? 'Aprovado' : 'Reprovado' }}
+      </span>
+    </p>
+  
+</div>

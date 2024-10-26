@@ -1,0 +1,34 @@
+<div class="form-container">
+    <h2>Calculadora</h2>
+    <p *ngIf="mensagemErro" id="erro-msg" class="alert alert-danger">{{ mensagemErro }}</p>
+
+    <div class="col-sm-4 row mb-3">
+        <input type="number" [(ngModel)]="numero1" class="form-control" id="colFormLabel" placeholder="Primeiro Número">
+      </div>
+    <div class="col-sm-4 row mb-3">
+        <input type="number" [(ngModel)]="numero2" class="form-control sm-2" id="colFormLabel" placeholder="Segundo Número">
+     </div>
+     <div>
+    
+        <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+          <input type="radio" class="btn-check" name="btnradio" id="btnradio1" [(ngModel)]="operacao" value="soma" autocomplete="off">
+          <label class="btn btn-outline-primary" for="btnradio1">Soma</label>
+          
+          <input type="radio" class="btn-check" name="btnradio" id="btnradio2" [(ngModel)]="operacao" value="subtracao" autocomplete="off">
+          <label class="btn btn-outline-primary" for="btnradio2">Subtração</label>
+          
+          <input type="radio" class="btn-check" name="btnradio" id="btnradio3" [(ngModel)]="operacao" value="multiplicacao" autocomplete="off">
+          <label class="btn btn-outline-primary" for="btnradio3">Multiplicação</label>
+          
+          <input type="radio" class="btn-check" name="btnradio" id="btnradio4" [(ngModel)]="operacao" value="divisao" autocomplete="off">
+          <label class="btn btn-outline-primary" for="btnradio4">Divisão</label>
+        </div>
+      </div>
+    <button type="button" class="btn btn-primary sm-2 mt-3" (click)="validarNumber() && validarMaxNumber() && calcular()">Calcular</button>
+     
+    <div *ngIf="resultado !== null" class="row mb-3">
+        <label for="colFormLabel" class="col-sm-3 col-form-label">Resultado:</label>
+        <div class="col-sm-4">
+          <input type="text"  class="form-control" id="colFormLabel"[value]="resultado" readonly />
+    </div>
+</div>

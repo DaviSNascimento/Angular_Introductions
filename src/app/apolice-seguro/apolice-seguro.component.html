@@ -1,0 +1,38 @@
+<div class="form-container">
+    <h2>Apólice de Seguro Automobilístico</h2>
+    <form>
+      <div class="mb-3">
+        <label for="nome" class="form-label">Nome do Segurado</label>
+        <input type="text" [(ngModel)]="segurado.nome" name="nome" class="form-control" id="nome" placeholder="Nome" required>
+      </div>
+  
+      <div class="mb-3">
+        <label for="sexo" class="form-label">Sexo</label>
+        <select [(ngModel)]="segurado.sexo" name="sexo" class="form-select" id="sexo" required>
+          <option value="masculino">Masculino</option>
+          <option value="feminino">Feminino</option>
+        </select>
+      </div>
+  
+      <div class="mb-3">
+        <label for="idade" class="form-label">Idade</label>
+        <input type="number" [(ngModel)]="segurado.idade" name="idade" class="form-control" id="idade" placeholder="Idade" required min="0">
+      </div>
+  
+      <div class="mb-3">
+        <label for="valorAutomovel" class="form-label">Valor do Automóvel</label>
+        <input type="number" [(ngModel)]="segurado.valorAutomovel" name="valorAutomovel" class="form-control" id="valorAutomovel" placeholder="Valor do Automóvel" required min="0">
+      </div>
+  
+      <button type="button" class="btn btn-primary" (click)="calcularValorApolice()">Calcular Valor da Apólice</button>
+  
+      <div *ngIf="mensagemErro" class="alert alert-danger mt-3">
+        {{ mensagemErro }}
+      </div>
+  
+      <div *ngIf="valorApolice !== null" class="alert alert-success mt-3">
+        Valor da Apólice: R$ {{ valorApolice.toFixed(2) }}
+      </div>
+    </form>
+  </div>
+  
